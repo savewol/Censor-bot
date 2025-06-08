@@ -1,23 +1,5 @@
-
 import discord
 from discord.ext import commands
-import os
-from flask import Flask
-from threading import Thread
-
-# --- FLASK KEEP-ALIVE SERVER ---
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "Bot is alive!"
-
-def run():
-    app.run(host='0.0.0.0', port=8080)
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
 
 # --- SETUP INTENTS ---
 intents = discord.Intents.default()
@@ -86,6 +68,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # --- RUN BOT ---
-if __name__ == "__main__":
-    keep_alive()
-    bot.run(os.getenv('DISCORD_TOKEN'))
+bot.run("MTM4MTExMTM3Mzk3NDYwNTkzNQ.GdrbRU.zcO8ibIst7Eeo13njs2fiFQSQ-Fah0WTRLJBRI")  # Replace with your actual bot token
